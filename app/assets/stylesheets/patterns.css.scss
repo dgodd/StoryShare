@@ -2,16 +2,8 @@
  * Repeatable UI elements outside the base styles provided from the scaffolding
  * ---------------------------------------------------------------------------- */
 
-@import "variables.css.scss";
+@import "_variables.scss";
 @import "elements";
-
-// https://gist.github.com/745754
-// https://gist.github.com/1096739
-@mixin border-radius($radius) {
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-}
 
 // TOPBAR
 // ------
