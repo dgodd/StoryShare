@@ -1,26 +1,35 @@
-%h3= @story.title
-.posted
-  %b Posted By:
-  %span.author= @story.user
-  (
-  %span.created= @story.created_at
-  )
+.row
+  .span8
+    %h3= @story.title
+    .posted
+      %b Posted By:
+      %span.author= @story.user
+      (
+      %span.created= @story.created_at
+      )
 
-.body= @story.body
+    .body= @story.body
 
-.comments
-  = form_for([ @story, @comment ||= Comment.new(params[:comment]) ]) do |f|
-    .field
-      = f.text_area :body, placeholder: 'Body Text'
-    %div
-      = f.submit
+  .span4
+    %fieldset.comments
+      %legend Comments
 
-  - @story.comments.each do |comment|
-    .comment
-      .author= comment.user
-      .created= comment.created_at
-      .body= comment.body
+      = form_for([ @story, @comment ||= Comment.new(params[:comment]) ]) do |f|
+        .field
+          = f.text_area :body, placeholder: 'Body Text'
+        %div
+          = f.submit class: 'btn'
 
-  - unless @story.comments.any?
-    %b No Comments have been posted
+      - @story.comments.each do |comment|
+        .comment
+          .posted
+            %b Posted By:
+            %span.author= comment.user
+            (
+            %span.created= comment.created_at
+            )
+          .body= comment.body
+
+      - unless @story.comments.any?
+        %b No Comments have been posted
 

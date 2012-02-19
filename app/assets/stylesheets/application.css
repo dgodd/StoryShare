@@ -18,3 +18,28 @@
 #content-container {
   margin-top: 50px;
 }
+
+.topbar .nav > li > a:hover {
+  background-color: transparent;
+}
+
+input[type="text"], textarea, select, .uneditable-input {
+  width: 100% !important;
+
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input[type="text"], select, .uneditable-input {
+  line-height: auto;
+  height: auto;
+}
+
+fieldset.comments textarea {
+  height: 4em !important;
+}
+fieldset.comments > .comment {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px dotted #ccc;
+}
