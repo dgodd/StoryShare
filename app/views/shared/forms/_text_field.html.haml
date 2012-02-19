@@ -1,0 +1,5 @@
+.clearfix{:class => "#{'error' unless obj.errors[field].empty?}"}
+  %label= label
+  .input
+    =f.text_field field
+    %span.help-block= obj.errors[field].join(', ')

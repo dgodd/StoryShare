@@ -1,0 +1,24 @@
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  = devise_error_messages!
+  %fieldset
+    %legend Sign in
+    .clearfix
+      = f.label :email
+      .input
+        = f.email_field :email
+    .clearfix
+      = f.label :password
+      .input
+        = f.password_field :password
+    - if devise_mapping.rememberable?
+      .clearfix
+        .input
+          = f.check_box :remember_me
+          %span Remember me
+    .input.buttons
+      = f.submit "Sign in", :class => 'primary btn'
+      - if devise_mapping.omniauthable?
+        - resource_class.omniauth_providers.each do |provider|
+          = link_to image_tag("authbuttons/#{provider.to_s}_32.png", :title => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider)
+
+= render :partial => "devise/shared/links"

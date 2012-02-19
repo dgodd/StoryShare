@@ -1,0 +1,31 @@
+This is a basic Rails 3.2 app with Devise and Omniauth configured for authenticating with Facebook
+and Twitter.
+
+The Devise templates are converted to HAML and use Twitter Bootstrap 1.4.
+Included sass-twitter-bootstrap from https://github.com/jlong/sass-twitter-bootstrap in vendor/assets.
+
+The configuration for the Facebook and Twitter apps are stored in config/omniauth_providers.yml
+The format of the file is the following:
+
+facebook:
+  scope: email # global setting for all environments
+  test:
+    app_id: the "application ID" of the Facebook app you use for testing
+    secret_key: the "secret key" of the Facebook app you use for testing
+  development: ...
+    app_id: the "application ID" of the Facebook app you use for development
+    secret_key: the "secret key" of the Facebook app you use for development
+  production: 
+    app_id: ...
+    secret_key: ...
+  # whatever other environments you have 
+twitter:
+  test: 
+    consumer_key: the "consumer key" for the Twitter app you use for testing
+    consumer_secret: the "consumer secret" for the Twitter app you use for testing
+  development:
+    consumer_key: the "consumer key" for the Twitter app you use for development
+    consumer_secret: the "consumer secret" for the Twitter app you use for development
+  production:
+    consumer_key: ...
+    consumer_secret: ...

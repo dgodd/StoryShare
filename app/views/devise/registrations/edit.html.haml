@@ -1,0 +1,42 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+  %fieldset
+    %legend Edit account
+    .clearfix
+      = f.label :email
+      .input
+        = f.email_field :email
+    .clearfix
+      = f.label :password
+      .input
+        = f.password_field :password
+        %span.help-block leave blank if you don't want to change the password
+    .clearfix
+      = f.label :password_confirmation
+      .input
+        = f.password_field :password_confirmation
+    .clearfix
+      = f.label :current_password
+      .input
+        = f.password_field :current_password
+        %span.help-block required to confirm your changes
+    .clearfix
+      .input
+        =f.submit "Update", :class => 'primary btn'
+    %fieldset
+      %legend Connected accounts
+      .clearfix
+        .input
+          - resource_class.omniauth_providers.each do |provider|
+            - provider_title = provider.to_s.titleize
+            - if resource.send("#{provider.to_s}_id").blank?
+              %p= link_to "Connect with #{provider_title}", omniauth_authorize_path(resource_name, provider)
+          - resource_class.omniauth_providers.each do |provider|
+            - provider_title = provider.to_s.titleize
+            - unless resource.send("#{provider.to_s}_id").blank?
+              %p= link_to "Disconnect from #{provider_title}", disconnect_omniauth_provider_path(provider), :method => :delete
+    %fieldset
+      %legend Cancel account
+      .input
+        %p
+          #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.

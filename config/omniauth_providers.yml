@@ -1,0 +1,22 @@
+facebook:
+  scope: email # global setting for all environments
+  test:
+    app_id: the "application ID" of the Facebook app you use for testing
+    secret_key: the "secret key" of the Facebook app you use for testing
+  development:
+    app_id: the "application ID" of the Facebook app you use for development
+    secret_key: the "secret key" of the Facebook app you use for development
+  production:
+    app_id:
+    secret_key:
+
+twitter:
+  test:
+    consumer_key: the "consumer key" for the Twitter app you use for testing
+    consumer_secret: the "consumer secret" for the Twitter app you use for testing
+  development:
+    consumer_key: the "consumer key" for the Twitter app you use for development
+    consumer_secret: the "consumer secret" for the Twitter app you use for development
+  production:
+    consumer_key: asasda
+    consumer_secret: asdasd
