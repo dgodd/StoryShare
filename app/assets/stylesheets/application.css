@@ -9,6 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require twitter/bootstrap 
+ *= require variables
+ *= require bootstrap
+ *= require responsive
  *= require_tree .
 */
+
+#content-container {
+  margin-top: 50px;
+}
