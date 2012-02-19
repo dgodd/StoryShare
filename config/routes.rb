@@ -9,7 +9,7 @@ StoryShare::Application.routes.draw do
       :as => 'disconnect_omniauth_provider'
   end
 
-  resources :stories do
-    resources :comments
+  resources :stories, only: [ :show, :new, :create ] do
+    resources :comments, only: [ :create ]
   end
 end
