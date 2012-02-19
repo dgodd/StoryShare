@@ -4,7 +4,8 @@
       = link_to Rails.configuration.application_name, '/', class: 'brand'
       - if user_signed_in?
         %ul.nav
-          %li= link_to 'Something', '#'
+          %li= link_to 'Read Stories', '/'
+          %li= link_to 'Post Story', new_story_path
         .pull-right
           %ul.nav
             %li= link_to current_user.email, edit_user_registration_path

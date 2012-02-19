@@ -1,0 +1,8 @@
+- @stories.each do |story|
+  %article
+    %h3= link_to story.title, story
+    .author= story.user
+    .created= story.created_at
+
+- unless @stories.any?
+  %h3 No Stories have been uploded

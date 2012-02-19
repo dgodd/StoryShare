@@ -1,0 +1,7 @@
+= form_for(@story) do |f|
+  .field
+    = f.text_field :title, placeholder: 'Title'
+  .field
+    = f.text_area :body, placeholder: 'Body Text'
+  %div
+    = f.submit

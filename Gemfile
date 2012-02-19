@@ -1,12 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
-
 gem 'json'
 
 # Gems used only for assets and not required
@@ -22,13 +16,12 @@ group :assets do
 end
 
 gem 'devise'
+gem 'cancan'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 gem 'jquery-rails'
-
 gem 'haml-rails'
-
 gem 'chronic'
 
 group :production do
@@ -43,12 +36,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
 
 # Use unicorn as the web server
 # gem 'unicorn'
