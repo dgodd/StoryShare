@@ -7,6 +7,8 @@
     = yield(:css_includes)
 
     = javascript_include_tag "application"
+    %script{ type:"text/javascript", src:"/tiny_mce/tiny_mce.js" }
+
     = yield(:js_includes)
 
     = csrf_meta_tags
