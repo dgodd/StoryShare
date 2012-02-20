@@ -2,14 +2,15 @@
 %html
   %head
     %title= Rails.configuration.application_name
-    
+
     = stylesheet_link_tag    "application"
     = yield(:css_includes)
 
     = javascript_include_tag "application"
     = yield(:js_includes)
-    
+
     = csrf_meta_tags
+    %link{rel:"icon", href:"/favicon.ico"}
   %body
     = render :partial => 'shared/header'
     #content-container.container
