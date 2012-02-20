@@ -75,4 +75,8 @@ fieldset.comments > .comment {
     @include border-radius(8px, 8px, 8px, 8px);
     @include box-shadow(0 4px 8px $gray);
   }
+
+  .body {
+    margin: 1em 0;
+  }
 }

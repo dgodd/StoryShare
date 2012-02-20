@@ -8,6 +8,10 @@
       (
       %span.created= @story.created_at
       )
+    - if @story.assignment
+      .for
+        %b Assignment:
+        = link_to @story.assignment.title, @story.assignment
 
     .body= @story.body.html_safe
 
