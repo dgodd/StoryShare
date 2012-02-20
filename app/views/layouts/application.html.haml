@@ -7,7 +7,14 @@
     = yield(:css_includes)
 
     = javascript_include_tag "application"
-    %script{ type:"text/javascript", src:"/tiny_mce/tiny_mce.js" }
+    %script{ type:"text/javascript", src:"/ckeditor/ckeditor.js" }
+    %script{ type:"text/javascript", src:"/ckeditor/adapters/jquery.js" }
+    %script{ type:"text/javascript", src:"/ckeditor/config.js" }
+    %link{ rel:"styleshteet", src:"/ckeditor/contents.css" }
+    %script{ type:"text/javascript", src:"/ckeditor/plugins/templates/templates/default.js" }
+    %script{ type:"text/javascript", src:"/ckeditor/plugins/styles/styles/default.js" }
+    %script{ type:"text/javascript", src:"/ckeditor/plugins/pastefromword/filter/default.js" }
+
 
     = yield(:js_includes)
 
