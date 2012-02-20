@@ -205,31 +205,9 @@ Devise.setup do |config|
   #     secret_key: xxx
 
 
-  omniauth_config = YAML.load_file(File.join(Rails.root, "config", "omniauth_providers.yml"))
-  facebook_config = omniauth_config['facebook'] || { Rails.env => {}}
-  facebook_env = facebook_config[Rails.env]
-
-  # config.omniauth :facebook, "APP_ID", "APP_SECRET",
-  #     {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
-  config.omniauth :facebook,
-    facebook_env['app_id'] || ENV['FACEBOOK_APP_ID'],
-    facebook_env['secret_key'] || ENV['FACEBOOK_SECRET_KEY'],
-    {:scope => facebook_config['scope'] || 'email'}
-
-  twitter_config = omniauth_config['twitter'] || { Rails.env => {}}
-  twitter_env = twitter_config[Rails.env]
-
-  config.omniauth :twitter,
-    twitter_env['consumer_key'] || ENV['TWITTER_CONSUMER_KEY'],
-    twitter_env['consumer_secret'] || ENV['TWITTER_CONSUMER_SECRET']
-
-  google_config = omniauth_config['google'] || { Rails.env => {}}
-  google_env = google_config[Rails.env]
-
-  config.omniauth :google,
-    google_env['consumer_key'] || ENV['google_CONSUMER_KEY'],
-    google_env['consumer_secret'] || ENV['google_CONSUMER_SECRET'],
-    { access_type: 'online', approval_prompt: '' }
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_KEY'], {:scope => 'email'} if ENV['FACEBOOK_APP_ID']
+  config.omniauth :twitter, ENV['TWITTER_CONSUMER_KEY'], ENV['TWITTER_CONSUMER_SECRET'] if ENV['TWITTER_CONSUMER_KEY']
+  config.omniauth :google, ENV['google_CONSUMER_KEY'], ENV['google_CONSUMER_SECRET'], { access_type: 'online', approval_prompt: '' } if ENV['google_CONSUMER_KEY']
 
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
