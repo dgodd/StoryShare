@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
       elsif data = session["devise.twitter_data"]
         user.twitter_id = data["uid"]
       elsif data = session["devise.google_data"]
+        Rails.logger.fatal data.to_json
         user.google_id = data["uid"]
       end
       # TODO: add other providers
