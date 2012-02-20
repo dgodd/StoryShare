@@ -22,6 +22,7 @@ gem 'devise'
 gem 'cancan'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-google'
 
 gem 'jquery-rails'
 gem 'haml-rails'

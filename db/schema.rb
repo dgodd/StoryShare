@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219203549) do
+ActiveRecord::Schema.define(:version => 20120220002957) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -44,10 +44,12 @@ ActiveRecord::Schema.define(:version => 20120219203549) do
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
     t.string   "twitter_id"
+    t.string   "google_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id", :unique => true
+  add_index "users", ["google_id"], :name => "index_users_on_google_id", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["twitter_id"], :name => "index_users_on_twitter_id", :unique => true
 

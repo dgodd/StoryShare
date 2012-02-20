@@ -13,10 +13,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def google
+    authorize :google do
+      session["devise.google_data"] = request.env["omniauth.auth"]
+    end
+  end
+
   private
   def authorize provider
     @user = User.send "find_for_#{provider}_oauth", request.env["omniauth.auth"], current_user
-    
+
     provider_name = provider.to_s.titleize
 
     # if current_user exists:
@@ -32,7 +38,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         # TODO: I18n
         flash[:error] = "That #{provider_name} account is already linked to a different user."
       else
-        flash[:notice] = "Your account is already linked with the #{provider_name} account." 
+        flash[:notice] = "Your account is already linked with the #{provider_name} account."
       end
       redirect_to edit_user_registration_path
     else

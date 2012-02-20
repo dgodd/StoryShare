@@ -20,3 +20,14 @@ twitter:
   production:
     consumer_key: asasda
     consumer_secret: asdasd
+
+google:
+  test:
+    consumer_key: the "consumer key" for the Google app you use for testing
+    consumer_secret: the "consumer secret" for the Google app you use for testing
+  development:
+    consumer_key: the "consumer key" for the Google app you use for development
+    consumer_secret: the "consumer secret" for the Google app you use for development
+  production:
+    consumer_key: asasda
+    consumer_secret: asdasd

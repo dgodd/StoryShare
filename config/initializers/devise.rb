@@ -199,7 +199,7 @@ Devise.setup do |config|
 
   # configuration requires the file /config/omniauth_providers.yml with the following structure
   # facebook: # provider
-  #   scope: email # global settings for provider 
+  #   scope: email # global settings for provider
   #   test: # environment-specific settings
   #     app_id: xyz
   #     secret_key: xxx
@@ -211,9 +211,9 @@ Devise.setup do |config|
 
   # config.omniauth :facebook, "APP_ID", "APP_SECRET",
   #     {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
-  config.omniauth :facebook, 
-    facebook_env['app_id'] || ENV['FACEBOOK_APP_ID'], 
-    facebook_env['secret_key'] || ENV['FACEBOOK_SECRET_KEY'], 
+  config.omniauth :facebook,
+    facebook_env['app_id'] || ENV['FACEBOOK_APP_ID'],
+    facebook_env['secret_key'] || ENV['FACEBOOK_SECRET_KEY'],
     {:scope => facebook_config['scope'] || 'email'}
 
   twitter_config = omniauth_config['twitter'] || { Rails.env => {}}
@@ -222,6 +222,14 @@ Devise.setup do |config|
   config.omniauth :twitter,
     twitter_env['consumer_key'] || ENV['TWITTER_CONSUMER_KEY'],
     twitter_env['consumer_secret'] || ENV['TWITTER_CONSUMER_SECRET']
+
+  google_config = omniauth_config['google'] || { Rails.env => {}}
+  google_env = google_config[Rails.env]
+
+  config.omniauth :google,
+    google_env['consumer_key'] || ENV['google_CONSUMER_KEY'],
+    google_env['consumer_secret'] || ENV['google_CONSUMER_SECRET'],
+    { access_type: 'online', approval_prompt: '' }
 
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
