@@ -1,0 +1,10 @@
+= form_for @assignment do |f|
+  -if @assignment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@assignment.errors.count, "error")} prohibited this assignment from being saved:"
+      %ul
+        - @assignment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

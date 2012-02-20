@@ -1,0 +1,28 @@
+%h1 Assignment
+
+.row
+  .span6
+    %h2= @assignment.title
+    %p
+      %b By:
+      = @assignment.user
+    %p
+      %b Due:
+      = @assignment.due_at
+
+    .body
+      = @assignment.body.html_safe
+
+
+  .span6
+    %h2 Stories
+    %div= link_to 'Post Story for this Assignment', new_story_path(story: { assignment_id: @assignment })
+
+    - @assignment.stories.each do |story|
+      %article.round-box
+        %h3= link_to story.title, story
+        .author= story.user
+        .created= story.created_at
+
+    - unless @assignment.stories.any?
+      %h3 No Stories have been uploded for this assignment

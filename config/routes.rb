@@ -10,4 +10,6 @@ StoryShare::Application.routes.draw do
   resources :stories, only: [ :index, :show, :new, :create ] do
     resources :comments, only: [ :create ]
   end
+
+  resources :assignments, only: [ :index, :show, :new, :create ]
 end

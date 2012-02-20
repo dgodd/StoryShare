@@ -7,6 +7,7 @@
           %li= link_to 'Read Stories', stories_path
           %li= link_to 'Post Story', new_story_path
           %li= link_to 'Invite Someone', new_user_invitation_path
+          %li= link_to 'Assignments', assignments_path
         .pull-right
           %ul.nav
             %li= link_to "Log out (#{current_user.email})", destroy_user_session_path, :method => :delete

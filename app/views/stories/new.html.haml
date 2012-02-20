@@ -2,6 +2,20 @@
   %legend Post Story
 
   = form_for(@story) do |f|
+    -if @story.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@story.errors.count, "error")} prohibited this story from being saved:"
+        %ul
+          - @story.errors.full_messages.each do |msg|
+            %li= msg
+
+    - if @story.assignment
+      .field
+        %b
+          Assignment:
+        = f.hidden_field :assignment_id
+        = @story.assignment.title
+
     .field
       = f.text_field :title, placeholder: 'Title'
     .field

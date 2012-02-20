@@ -1,0 +1,13 @@
+= link_to 'New Assignment', new_assignment_path, style: 'float:right;'
+
+%h2 Assignments
+
+- @assignments.each do |assignment|
+  %article.round-box
+    %h3= link_to assignment.title, assignment
+    .author= assignment.user
+    .created= assignment.created_at
+    .due= assignment.due_at
+
+- unless @assignments.any?
+  %h3 No Assignments have been uploded

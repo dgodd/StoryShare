@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
-  $('#story_body').wysiwyg({
+  $('#story_body, #assignment_body').wysiwyg({
     controls: {
       strikeThrough: { visible: false },
       createLink: { visible: false },

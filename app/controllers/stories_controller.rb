@@ -3,6 +3,7 @@ class StoriesController < ApplicationController
 
   def index
     # @stories = Story.all
+    @assignment = Assignment.last
   end
 
   def new

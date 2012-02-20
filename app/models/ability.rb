@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
 
-    can [ :read, :create ], [ Story, Comment ] if user
+    can [ :read, :create ], [ Story, Comment, Assignment ] if user
 
     # Define abilities for the passed in user here. For example:
     #

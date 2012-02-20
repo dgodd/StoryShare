@@ -8,16 +8,15 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require variables
  *= require bootstrap
  *= require responsive
  *= require_tree .
+ *= require_self
 */
 
-#content-container {
-  margin-top: 50px;
-}
+@import "_variables.scss";
+@import "elements";
 
 .topbar .nav > li > a:hover {
   background-color: transparent;
@@ -42,4 +41,38 @@ fieldset.comments > .comment {
   margin-top: 1em;
   padding-top: 1em;
   border-top: 1px dotted #ccc;
+}
+
+#content-container {
+  margin-top: 50px;
+
+  h1, h2, fieldset > legend {
+    color: $blue;
+    text-shadow: 0 2px 2px rgba(0,0,0,.25);
+    margin-bottom: 10px;
+  }
+
+  .round-box {
+    padding: 8px;
+    @include border-radius(8px, 8px, 8px, 8px);
+    @include box-shadow(0 4px 8px $gray);
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  fieldset.comments {
+    .comment {
+      padding: 8px;
+      @include border-radius(8px, 8px, 8px, 8px);
+      @include box-shadow(0 4px 8px $gray);
+      margin-bottom: 20px;
+    }
+  }
+
+  #lastest-assignment {
+    background-color: $grayLighter;
+    padding: 8px;
+    @include border-radius(8px, 8px, 8px, 8px);
+    @include box-shadow(0 4px 8px $gray);
+  }
 }
