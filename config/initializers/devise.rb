@@ -4,7 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "noreply@localhost"
+  config.mailer_sender = "catherine@lypc.com.au"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -71,6 +71,26 @@ Devise.setup do |config|
   # Setup a pepper to generate the encrypted password.
   # config.pepper = "434aff415458512c0c06ac91e63129ebcbba61599ab9023774c2fba661fb940cf48fe9acbf27b6c5fffb9966625e1eda92b4a2b7d114507cec2e179d548e27b0"
 
+  # ==> Configuration for :invitable
+  # The period the generated invitation token is valid, after
+  # this period, the invited resource won't be able to accept the invitation.
+  # When invite_for is 0 (the default), the invitation won't expire.
+  config.invite_for = 2.weeks
+
+  # Number of invitations users can send.
+  # If invitation_limit is nil, users can send unlimited invitations.
+  # If invitation_limit is 0, users can't send invitations.
+  # If invitation_limit n > 0, users can send n invitations.
+  # Default: nil
+  # config.invitation_limit = 5
+
+  # The key to be used to check existing users when sending an invitation
+  # config.invite_key = :email
+
+  # Flag that force a record to be valid before being actually invited
+  # Default: false
+  # config.validate_on_invite = true
+
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
   # confirming his account. For instance, if set to 2.days, the user will be
@@ -85,9 +105,6 @@ Devise.setup do |config|
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   config.remember_for = 2.weeks
-
-  # If true, a valid remember token can be re-used between multiple browsers.
-  config.remember_across_browsers = false
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -197,19 +214,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
 
-  # configuration requires the file /config/omniauth_providers.yml with the following structure
-  # facebook: # provider
-  #   scope: email # global settings for provider
-  #   test: # environment-specific settings
-  #     app_id: xyz
-  #     secret_key: xxx
-
-
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_KEY'], {:scope => 'email'} if ENV['FACEBOOK_APP_ID']
   config.omniauth :twitter, ENV['TWITTER_CONSUMER_KEY'], ENV['TWITTER_CONSUMER_SECRET'] if ENV['TWITTER_CONSUMER_KEY']
   config.omniauth :google, ENV['google_CONSUMER_KEY'], ENV['google_CONSUMER_SECRET'], { access_type: 'online', approval_prompt: '' } if ENV['google_CONSUMER_KEY']
-
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

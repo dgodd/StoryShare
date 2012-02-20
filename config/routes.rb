@@ -1,7 +1,5 @@
 StoryShare::Application.routes.draw do
-
-  match '/', :controller => :stories, :action => :index
-  root :to => 'stories#index'
+  root :to => 'welcome#index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     delete '/users/disconnect/:provider',
@@ -9,7 +7,7 @@ StoryShare::Application.routes.draw do
       :as => 'disconnect_omniauth_provider'
   end
 
-  resources :stories, only: [ :show, :new, :create ] do
+  resources :stories, only: [ :index, :show, :new, :create ] do
     resources :comments, only: [ :create ]
   end
 end

@@ -18,7 +18,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'devise'
+gem 'devise',           '~> 2.0.0'
+gem 'devise_invitable', :git => 'https://github.com/scambra/devise_invitable.git'
 gem 'cancan'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'

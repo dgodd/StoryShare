@@ -4,16 +4,14 @@
       = link_to Rails.configuration.application_name, '/', class: 'brand'
       - if user_signed_in?
         %ul.nav
-          %li= link_to 'Read Stories', '/'
+          %li= link_to 'Read Stories', stories_path
           %li= link_to 'Post Story', new_story_path
+          %li= link_to 'Invite Someone', new_user_invitation_path
         .pull-right
           %ul.nav
-            %li= link_to current_user.email, edit_user_registration_path
-            %li= link_to 'Sign out', destroy_user_session_path, :method => :delete
+            %li= link_to "Log out (#{current_user.email})", destroy_user_session_path, :method => :delete
       - else
         .pull-right
           %ul.nav
-            %li=link_to 'Sign in',
+            %li=link_to 'Log in',
                 new_user_session_path
-            %li=link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
-            %li=link_to 'Sign up',new_registration_path(:user)
