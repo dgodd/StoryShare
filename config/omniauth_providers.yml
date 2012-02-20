@@ -7,8 +7,6 @@ facebook:
     app_id: the "application ID" of the Facebook app you use for development
     secret_key: the "secret key" of the Facebook app you use for development
   production:
-    app_id:
-    secret_key:
 
 twitter:
   test:
@@ -18,8 +16,6 @@ twitter:
     consumer_key: the "consumer key" for the Twitter app you use for development
     consumer_secret: the "consumer secret" for the Twitter app you use for development
   production:
-    consumer_key: asasda
-    consumer_secret: asdasd
 
 google:
   test:
@@ -29,5 +25,3 @@ google:
     consumer_key: the "consumer key" for the Google app you use for development
     consumer_secret: the "consumer secret" for the Google app you use for development
   production:
-    consumer_key: asasda
-    consumer_secret: asdasd
