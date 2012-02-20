@@ -8,7 +8,7 @@
       %span.created= @story.created_at
       )
 
-    .body= @story.body
+    .body= @story.body.html_safe
 
   .span4
     %fieldset.comments
@@ -28,7 +28,7 @@
             (
             %span.created= comment.created_at
             )
-          .body= comment.body
+          .body= comment.body.html_safe
 
       - unless @story.comments.any?
         %b No Comments have been posted
