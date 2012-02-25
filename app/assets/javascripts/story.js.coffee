@@ -3,7 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
 
-  $( 'textarea' ).ckeditor({
-    toolbar : [ [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList' ] ]
-  })
+  $( 'textarea' ).ckeditor()
 
