@@ -5,8 +5,6 @@ $ ->
 
   $( 'textarea' ).ckeditor({
     toolbar : [ [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList' ] ],
-    pasteFromWordPromptCleanup : true,
-    pasteFromWordRemoveFontStyles : true,
-    pasteFromWordRemoveStyles : true
+    pasteFromWordPromptCleanup : true
   })
 
