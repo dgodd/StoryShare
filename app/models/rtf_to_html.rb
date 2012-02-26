@@ -8,7 +8,13 @@ class RtfToHtml
   def convert_encoding!
     # {\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf230
     @encoding = @rtf.match(/\\ansicpg(\d+)/).try(:[], 1)
-    @rtf.force_encoding("windows-#{@encoding}") if @encoding
+    begin
+      @encoding = "windows-#{@encoding}" if @encoding
+      @rtf.force_encoding(@encoding) if @encoding
+    rescue
+      @encoding = 'ISO-8859-1'
+      @rtf.force_encoding(@encoding)
+    end
     self
   end
 
@@ -111,7 +117,7 @@ class RtfToHtml
     add("span style='#{style}'", 'span') unless style.empty?
 
     if @encoding
-      section[:text].force_encoding("windows-#{@encoding}")
+      section[:text].force_encoding(@encoding)
       section[:text] = section[:text].encode('UTF-8')
     end
     str << @prefix + section[:text] + @suffix

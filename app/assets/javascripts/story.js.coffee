@@ -3,5 +3,10 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
 
-  $( 'textarea' ).ckeditor()
+  $( 'textarea' ).ckeditor({
+    toolbar : [ [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList' ] ],
+    pasteFromWordPromptCleanup : true,
+    pasteFromWordRemoveFontStyles : true,
+    pasteFromWordRemoveStyles : true
+  })
 
