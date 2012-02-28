@@ -1,15 +1,16 @@
 GIT
+  remote: git@github.com:dgodd/Ruby-RTF.git
+  revision: 24bb850c765a5be6b097ae19cfec4a81e7943e88
+  specs:
+    ruby-rtf (0.0.2)
+
+GIT
   remote: https://github.com/scambra/devise_invitable.git
   revision: 8cde345faf1a65908309799efaaa335f645b9740
   specs:
     devise_invitable (1.0.0)
       devise (~> 2.0.0)
       rails (~> 3.0)
-
-PATH
-  remote: /Users/dgodd/www/Ruby-RTF
-  specs:
-    ruby-rtf (0.0.2)
 
 GEM
   remote: https://rubygems.org/
