@@ -2,49 +2,34 @@ class RtfToHtml
   def initialize(rtf)
     @prefix = ''
     @suffix = ''
-    @rtf = rtf
-  end
 
-  def convert_encoding!
-    # {\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf230
-    @encoding = @rtf.match(/\\ansicpg(\d+)/).try(:[], 1)
-    begin
-      @encoding = "windows-#{@encoding}" if @encoding
-      @rtf.force_encoding(@encoding) if @encoding
-    rescue
-      @encoding = 'ISO-8859-1'
-      @rtf.force_encoding(@encoding)
-    end
-    self
-  end
-
-  def to_s
-    str = ''
-    @doc = RubyRTF::Parser.new.parse(@rtf)
-    @doc.sections.each do |section|
+    @html = ''
+    RubyRTF::Parser.new.parse(rtf).sections.each do |section|
       mods = section[:modifiers]
 
       if mods[:table]
-        str << "<table width=\"100%\">\n"
+        @html << "<table width=\"100%\">\n"
         mods[:table].rows.each do |row|
-          str << "<tr>\n"
+          @html << "<tr>\n"
           row.cells.each do |cell|
-            str << "<td width=\"#{cell.width}%\">\n"
+            @html << "<td width=\"#{cell.width}%\">\n"
             cell.sections.each do |sect|
-              format(str, sect)
+              format(@html, sect)
             end
-            str << "</td>\n"
+            @html << "</td>\n"
           end
-          str << "</tr>\n"
+          @html << "</tr>\n"
         end
-        str << "</table>\n"
+        @html << "</table>\n"
         next
       end
 
-      format(str, section)
+      format(@html, section)
     end
+  end
 
-    str
+  def to_s
+    @html
   end
 
   def add(open, close = open)
@@ -116,10 +101,6 @@ class RtfToHtml
 
     add("span style='#{style}'", 'span') unless style.empty?
 
-    if @encoding
-      section[:text].force_encoding(@encoding)
-      section[:text] = section[:text].encode('UTF-8')
-    end
     str << @prefix + section[:text] + @suffix
   end
 

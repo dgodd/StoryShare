@@ -6,6 +6,11 @@ GIT
       devise (~> 2.0.0)
       rails (~> 3.0)
 
+PATH
+  remote: /Users/dgodd/www/Ruby-RTF
+  specs:
+    ruby-rtf (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -164,7 +169,6 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    ruby-rtf (0.0.1)
     rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.2.4)
@@ -223,7 +227,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   rails (= 3.2.0)
-  ruby-rtf
+  ruby-rtf!
   sass-rails (~> 3.2.3)
   sqlite3
   thin
