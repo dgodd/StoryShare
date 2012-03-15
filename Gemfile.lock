@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:dgodd/Ruby-RTF.git
-  revision: 24bb850c765a5be6b097ae19cfec4a81e7943e88
+  revision: b612cacdaba7253f25dcb7a55a76345f7f76a1ab
   specs:
     ruby-rtf (0.0.2)
 
