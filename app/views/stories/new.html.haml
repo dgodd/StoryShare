@@ -19,6 +19,6 @@
     .field
       = f.text_field :title, placeholder: 'Title'
     .field
-      = f.file_field :body_rtf
+      = f.file_field :body_rtf, accept: 'text/rtf'
     %div
       = f.submit class: 'btn'
